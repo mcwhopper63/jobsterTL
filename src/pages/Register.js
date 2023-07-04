@@ -54,11 +54,14 @@ const Register = () => {
         <FormRow type="email" name="email" value={values.email} handleChange={handleChange}/>
         {/* password field */}
         <FormRow type="password" name="password" value={values.password} handleChange={handleChange}/>
-        <button className='btn btn-block' type='submit'>submit</button>
-        { values.isMember ? (<p>Not a member yet?</p>) : (<p>Already a member?</p>)}
+
+        <button disabled={isLoading} className='btn btn-block' type='submit'>submit</button>
+        <p>
+          { values.isMember ? `Not a member yet?` : `Already a member?`}
         <button type="button" onClick={toggleMember} className="member-btn">
-          { values.isMember? "Sign Up" : "Log In"}
+          { values.isMember ? "Register" : "Login"}
         </button>
+        </p>
       </form>
     </Wrapper>
   )
