@@ -53,8 +53,8 @@ const Register = () => {
         navigate('/');
       }, 3000)
     }
-  }, [user, navigate])
-  
+  }, [user])
+
   return (
     <Wrapper className='full-page'>
       <form action="" className="form" onSubmit={onSubmit}>
