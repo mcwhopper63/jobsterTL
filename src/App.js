@@ -2,7 +2,7 @@ import {Landing, Error, Register} from "./pages";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {AllJobs,Profile,SharedLayout,Stats,AddJob} from './pages/dashboard'
+import { AllJobs, Profile, SharedLayout, Stats, AddJob } from './pages/Dashboard'
 
 function App() {
   return (
