@@ -28,11 +28,11 @@ export const loginUser = createAsyncThunk('user/loginUser', async(user, thunkAPI
 })
 
 export const updateUser = createAsyncThunk(
-  'user/updateUser', async(user, thunkAPI)=> {
+  'user/updateUser', async(user, thunkAPI) => {
     try {
-      const resp = await customFetch.path('/auth/login', user, {
+      const resp = await customFetch.patch('/auth/updateUser', user, {
         headers: {
-          authorization:`Bearer ${thunkAPI.getState().user.user.token}`
+          authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
         }
       });
       return resp.data;
