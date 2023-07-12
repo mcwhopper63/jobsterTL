@@ -17,8 +17,8 @@ const initialState = {
 };
 
 const jobSlice = createSlice({
-    name: 'job',
-    initialState, 
+  name: 'job',
+  initialState,
 });
 
 export default jobSlice.reducer;
