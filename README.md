@@ -1961,13 +1961,6 @@ extraReducers: {
 AddJob.js
 
 ```js
-import {
-  clearValues,
-  handleChange,
-  createJob,
-} from '../../features/job/jobSlice';
-
-const handleSubmit = (e) => {
   e.preventDefault();
 
   if (!position || !company || !jobLocation) {
@@ -1975,6 +1968,13 @@ const handleSubmit = (e) => {
     return;
   }
 
+import {
+  clearValues,
+  handleChange,
+  createJob,
+} from '../../features/job/jobSlice';
+
+const handleSubmit = (e) => {
   dispatch(createJob({ position, company, jobLocation, jobType, status }));
 };
 ```
