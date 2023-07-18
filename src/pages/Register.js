@@ -68,6 +68,7 @@ const Register = () => {
         <FormRow type="password" name="password" value={values.password} handleChange={handleChange}/>
 
         <button disabled={isLoading} className='btn btn-block' type='submit'>submit</button>
+        <button disabled={isLoading} className='btn btn-block btn-hipster' type='button' onClick={() => {dispatch(loginUser({email: 'testUser@test.com', password: 'secret'}))}}>{isLoading? 'loading...' : 'demo'}</button>
         <p>
           { values.isMember ? `Not a member yet?` : `Already a member?`}
         <button type="button" onClick={toggleMember} className="member-btn">
