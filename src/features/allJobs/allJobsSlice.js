@@ -35,7 +35,7 @@ export const getAllJobs = createAsyncThunk(
             return resp.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(`There was an error`);
-            // return thunkAPI.rejectWithValue(error.response.data.msg);
+
         }
 })
 
