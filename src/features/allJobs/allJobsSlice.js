@@ -2,7 +2,7 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import {toast} from 'react-toastify';
 import customFetch from '../../utils/axios';
 
-const initialFilterState = {
+const initialFiltersState = {
     search: '',
     searchStatus: 'all',
     searchType: 'all',
@@ -18,7 +18,7 @@ const initialState = {
     page: 1,
     stats: {},
     monthlyApplications: [],
-    ...initialFilterState,
+    ...initialFiltersState,
 };
 
 export const getAllJobs = createAsyncThunk(
@@ -35,7 +35,6 @@ export const getAllJobs = createAsyncThunk(
             return resp.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(`There was an error`);
-
         }
 })
 
@@ -62,6 +61,12 @@ const allJobsSlice = createSlice({
         hideLoading: (state)=>{
             state.isLoading = false;
         },
+        handleChange: (state, { payload: {name, value}})=>{
+            state[name] = value;
+        },
+        clearFilters: (state) => {
+            return { ...state, ...initialFiltersState };
+        }
     },
     extraReducers: {
         [getAllJobs.pending]: (state) => {
@@ -91,6 +96,6 @@ const allJobsSlice = createSlice({
 
 });
 
-export const {showLoading, hideLoading } = allJobsSlice.actions
+export const {showLoading, hideLoading, handleChange, clearFilters } = allJobsSlice.actions
 export default allJobsSlice.reducer;
 
